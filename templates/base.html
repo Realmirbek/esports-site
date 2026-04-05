@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <meta name="description" content="{{ description }}">
+    <meta name="keywords" content="{{ keywords }}">
+    <meta property="og:title" content="{{ title }}">
+    <meta property="og:description" content="{{ description }}">
+    <meta property="og:type" content="website">
+    <script type="application/ld+json">{{ schema | safe }}</script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: #0d0d0d; color: #e0e0e0; font-family: 'Segoe UI', sans-serif; }
+        header { background: #1a1a2e; padding: 20px 40px; border-bottom: 2px solid #e94560; }
+        header h1 { color: #e94560; font-size: 28px; }
+        nav { margin-top: 10px; }
+        nav a { color: #aaa; text-decoration: none; margin-right: 20px; font-size: 14px; }
+        nav a:hover, nav a.active { color: #e94560; }
+        .container { max-width: 1100px; margin: 40px auto; padding: 0 20px; }
+        h2 { font-size: 22px; margin-bottom: 24px; color: #fff; border-left: 4px solid #e94560; padding-left: 12px; }
+        .match-card { background: #1a1a2e; border: 1px solid #2a2a4a; border-radius: 10px; padding: 20px; margin-bottom: 16px; display: flex; align-items: center; justify-content: space-between; }
+        .teams { display: flex; align-items: center; gap: 16px; font-size: 18px; font-weight: bold; }
+        .vs { color: #e94560; font-size: 14px; }
+        .meta { font-size: 13px; color: #888; text-align: right; }
+        .game-badge { background: #e94560; color: #fff; padding: 3px 10px; border-radius: 20px; font-size: 12px; margin-bottom: 6px; display: inline-block; }
+        .status { font-size: 12px; color: #4caf50; }
+        .no-matches { text-align: center; color: #555; padding: 60px; font-size: 18px; }
+        footer { text-align: center; padding: 30px; color: #555; font-size: 13px; border-top: 1px solid #1a1a2e; margin-top: 60px; }
+    </style>
+</head>
+<body>
+<header>
+    <h1>⚡ EsportsMatches</h1>
+    <nav>
+        <a href="yesterday.html" {% if active == 'yesterday' %}class="active"{% endif %}>Вчера</a>
+        <a href="today.html" {% if active == 'today' %}class="active"{% endif %}>Сегодня</a>
+        <a href="tomorrow.html" {% if active == 'tomorrow' %}class="active"{% endif %}>Завтра</a>
+    </nav>
+</header>
+<div class="container">
+    {% block content %}{% endblock %}
+</div>
+<footer>© 2025 EsportsMatches — все киберспортивные матчи в одном месте</footer>
+</body>
+</html>

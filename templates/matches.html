@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>{{ heading }}</h2>
+{% if matches %}
+    {% for match in matches %}
+    <div class="match-card">
+        <div class="teams">
+            <span>{{ match.team1 }}</span>
+            <span class="vs">VS</span>
+            <span>{{ match.team2 }}</span>
+        </div>
+        <div class="meta">
+            <span class="game-badge">{{ match.game }}</span><br>
+            <span>{{ match.time }}</span><br>
+            <span class="status">{{ match.status }}</span>
+        </div>
+    </div>
+    {% endfor %}
+{% else %}
+    <div class="no-matches">Матчей не найдено 😔</div>
+{% endif %}
+{% endblock %}
